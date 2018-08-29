@@ -15,7 +15,7 @@ script:
 
 after_success:
   - |
-     if [ "xfalse" == "x$TRAVIS_PULL_REQUEST"]; then
+     if [ "xfalse" == "x$TRAVIS_PULL_REQUEST" ]; then
         docker push tanibox/build-base:latest && docker push tanibox/build-base:bionic
      fi
 
