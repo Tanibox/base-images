@@ -6,16 +6,17 @@ services:
 before_script:
   - |
     if [ "xfalse" == "x$TRAVIS_PULL_REQUEST"]; then
+      echo "Logging in to docker hub..."
       echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     fi
 
 script:
-  - docker build -t tanibox/build-base:latest -f docker/build-base/bionic/Dockerfile .
-  - docker tag tanibox/build-base:latest tanibox/build-base:bionic
+  - docker build -t tanibox/build-base -f docker/build-base/bionic/Dockerfile .
 
 after_success:
   - |
      if [ "xfalse" == "x$TRAVIS_PULL_REQUEST" ]; then
-        docker push tanibox/build-base:latest && docker push tanibox/build-base:bionic
+        echo "Pushing images to docker hub..."
+        docker push tanibox/build-base
      fi
 
