@@ -1,0 +1,21 @@
+sudo: required
+
+services:
+  - docker
+
+before_script:
+  - |
+    if [ "xfalse" == "x$TRAVIS_PULL_REQUEST"]; then
+      echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    fi
+
+script:
+  - docker build -t tanibox/build-base:latest -f docker/build-base/bionic/Dockerfile .
+  - docker tag tanibox/build-base:latest tanibox/build-base:bionic
+
+after_success:
+  - |
+     if [ "xfalse" == "x$TRAVIS_PULL_REQUEST"]; then
+        docker push tanibox/build-base:latest && docker push tanibox/build-base:bionic
+     fi
+
