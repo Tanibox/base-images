@@ -3,7 +3,6 @@ sudo: required
 addons:
   apt:
     sources:
-      - sourceline: ppa:ubuntu-toolchain-r/test
       - sourceline: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu trusty stable'
         key_url: 'https://download.docker.com/linux/ubuntu/gpg'
 
