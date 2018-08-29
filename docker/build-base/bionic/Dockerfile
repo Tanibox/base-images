@@ -18,10 +18,25 @@ RUN apt-get update -qq && apt-get install -qq \
       unzip \
       help2man \
       gawk \
-      sed \
       libtool \
       libtool-bin \
       mingw-w64 \
       p7zip-full \
-    && pip install awscli --upgrade
+      clang \
+      llvm-dev \
+      libxml2-dev \
+      uuid-dev \
+      libssl-dev \
+      bash \
+      patch \
+      make \
+      tar \
+      xz-utils \
+      bzip2 \
+      gzip \
+      sed \
+      cpio \
+      libbz2-dev \
+    && pip install awscli --upgrade \
+    && apt-get clean
 
