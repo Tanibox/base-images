@@ -22,5 +22,6 @@ RUN apt-get update -qq && apt-get install -qq \
       libtool \
       libtool-bin \
       mingw-w64 \
+      p7zip-full \
     && pip install awscli --upgrade
 
