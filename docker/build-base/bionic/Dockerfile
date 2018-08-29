@@ -37,6 +37,7 @@ RUN apt-get update -qq && apt-get install -qq \
       sed \
       cpio \
       libbz2-dev \
+      clang \
     && pip install awscli --upgrade \
     && apt-get clean
 
