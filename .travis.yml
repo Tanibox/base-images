@@ -1,5 +1,19 @@
 sudo: required
 
+addons:
+  apt:
+    sources:
+      - sourceline: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu trusty stable'
+        key_url: 'https://download.docker.com/linux/ubuntu/gpg'
+
+    packages:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - wget
+      - software-properties-common
+      - docker-ce
+
 services:
   - docker
 
