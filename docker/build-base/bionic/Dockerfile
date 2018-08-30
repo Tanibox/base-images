@@ -38,6 +38,7 @@ RUN apt-get update -qq && apt-get install -qq \
       cpio \
       libbz2-dev \
       clang \
+      genisoimage \
     && pip install awscli --upgrade \
     && apt-get clean
 
