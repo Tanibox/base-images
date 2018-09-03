@@ -27,7 +27,7 @@ before_script:
 script:
   - docker build -t tanibox/build-base:bionic -f docker/build-base/bionic/Dockerfile .
   - docker build -t tanibox/build-base:alpine -f docker/build-base/alpine/Dockerfile .
-  - docker tag tanibox/build-base:latest tanibox/build-base:bionic
+  - docker tag tanibox/build-base:bionic tanibox/build-base:latest
 
 after_success:
   - |
