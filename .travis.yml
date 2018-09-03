@@ -25,12 +25,16 @@ before_script:
     fi
 
 script:
-  - docker build -t tanibox/build-base -f docker/build-base/bionic/Dockerfile .
+  - docker build -t tanibox/build-base:bionic -f docker/build-base/bionic/Dockerfile .
+  - docker build -t tanibox/build-base:alpine -f docker/build-base/alpine/Dockerfile .
+  - docker tag tanibox/build-base:latest tanibox/build-base:bionic
 
 after_success:
   - |
      if [ "xfalse" == "x$TRAVIS_PULL_REQUEST" ]; then
         echo "Pushing images to docker hub..."
-        docker push tanibox/build-base
+        docker push tanibox/build-base:bionic
+        docker push tanibox/build-base:alpine
+        docker push tanibox/build-base:latest
      fi
 

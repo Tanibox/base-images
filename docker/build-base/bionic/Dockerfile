@@ -42,3 +42,8 @@ RUN apt-get update -qq && apt-get install -qq \
     && pip install awscli --upgrade \
     && apt-get clean
 
+RUN adduser --disabled-password --gecos '' build
+
+USER build
+WORKDIR /home/build
+
